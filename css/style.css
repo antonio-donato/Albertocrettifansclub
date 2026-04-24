@@ -631,6 +631,24 @@ img {
     transform: translateY(0);
 }
 
+/* Card Images */
+.card-image {
+    margin: -24px -24px 16px -24px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--transition);
+}
+
+.card-with-image:hover .card-image img {
+    transform: scale(1.03);
+}
+
 /* ===========================
    Footer
    =========================== */
