@@ -9,7 +9,7 @@
     --color-border: #2a2a3a;
     --color-text: #e8e8f0;
     --color-text-muted: #8888a0;
-    --color-text-dim: #555570;
+    --color-text-dim: #8686a2;
     --color-primary: #6c5ce7;
     --color-primary-light: #a29bfe;
     --color-primary-glow: rgba(108, 92, 231, 0.3);
@@ -183,6 +183,7 @@ img {
 .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -633,8 +634,12 @@ img {
 
 /* Card Images */
 .card-image {
-    margin: -24px -24px 16px -24px;
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    margin: -28px -28px 16px -28px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
+}
+
+.card-with-image {
     overflow: hidden;
 }
 
@@ -807,6 +812,10 @@ img {
     .card {
         padding: 20px;
     }
+
+    .card-image {
+        margin: -20px -20px 16px -20px;
+    }
 }
 
 /* ===========================
@@ -853,4 +862,37 @@ img {
 ::selection {
     background: var(--color-primary);
     color: #fff;
+}
+
+/* ===========================
+   Focus visibility
+   =========================== */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent-alt);
+    outline-offset: 3px;
+}
+
+/* ===========================
+   Reduced motion
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+
+    .card-update,
+    .timeline-item {
+        opacity: 1;
+        transform: none;
+    }
 }

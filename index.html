@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alberto Cretti Fansclub</title>
+    <meta name="description" content="Il meglio del meglio di Albert: una raccolta delle perle, citazioni memorabili e telefonate leggendarie di Alberto Cretti e colleghi.">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://antonio-donato.github.io/Albertocrettifansclub/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alberto Cretti Fansclub">
+    <meta property="og:url" content="https://antonio-donato.github.io/Albertocrettifansclub/">
+    <meta property="og:title" content="Alberto Cretti Fansclub">
+    <meta property="og:description" content="Il meglio del meglio di Albert: perle, citazioni memorabili e telefonate leggendarie.">
+    <meta property="og:image" content="https://antonio-donato.github.io/Albertocrettifansclub/img/il-casco.jpeg">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="1132">
+    <meta property="og:image:alt" content="Alberto con il casco verde">
+    <meta property="og:locale" content="it_IT">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alberto Cretti Fansclub">
+    <meta name="twitter:description" content="Il meglio del meglio di Albert: perle, citazioni memorabili e telefonate leggendarie.">
+    <meta name="twitter:image" content="https://antonio-donato.github.io/Albertocrettifansclub/img/il-casco.jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <noscript>
+        <style>
+            /* Reveal animations rely on JS: without it, show all content */
+            .card-update,
+            .timeline-item { opacity: 1; transform: none; }
+        </style>
+    </noscript>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,12 +42,12 @@
                 <span class="logo-icon">&#9733;</span>
                 AC Fansclub
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#updates">Updates</a></li>
                 <li><a href="#memories">Memories</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -53,11 +78,11 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-number">93</span>
+                    <span class="stat-number">106</span>
                     <span class="stat-label">Citazioni Memorabili</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-number">21</span>
+                    <span class="stat-number">23</span>
                     <span class="stat-label">Anni di Perle</span>
                 </div>
                 <div class="stat-card">
@@ -248,7 +273,7 @@
                 </article>
 
                 <article class="card card-update card-with-image">
-                    <div class="card-image"><img src="img/il-casco.jpeg" alt="Il casco" loading="lazy"></div>
+                    <div class="card-image"><img src="img/il-casco.jpeg" alt="Il casco" width="640" height="1132" loading="lazy" decoding="async"></div>
                     <div class="card-meta"><span class="card-date">11 Aprile 2014</span><span class="card-badge badge-update">Update</span></div>
                     <h3 class="card-title">Il casco</h3>
                 </article>
@@ -317,7 +342,7 @@
                 </article>
 
                 <article class="card card-update card-with-image">
-                    <div class="card-image"><img src="img/gatti-in-regalo.jpg" alt="Gatti in regalo" loading="lazy"></div>
+                    <div class="card-image"><img src="img/gatti-in-regalo.jpg" alt="Gatti in regalo" width="500" height="375" loading="lazy" decoding="async"></div>
                     <div class="card-meta"><span class="card-date">17 Aprile 2013</span><span class="card-badge badge-update">Update</span></div>
                     <h3 class="card-title">Gatti in regalo</h3>
                     <blockquote class="card-quote">&laquo;Questo gatto &egrave; grigio tendente al rossiccio&hellip;&raquo;</blockquote>
@@ -330,7 +355,7 @@
                 </article>
 
                 <article class="card card-update card-with-image">
-                    <div class="card-image"><img src="img/i-carabinieri.jpg" alt="I carabinieri" loading="lazy"></div>
+                    <div class="card-image"><img src="img/i-carabinieri.jpg" alt="I carabinieri" width="500" height="375" loading="lazy" decoding="async"></div>
                     <div class="card-meta"><span class="card-date">29 Marzo 2013</span><span class="card-badge badge-update">Update</span></div>
                     <h3 class="card-title">I carabinieri</h3>
                 </article>
@@ -526,7 +551,7 @@
                 </article>
 
                 <article class="card card-update card-with-image">
-                    <div class="card-image"><img src="img/bruno.jpg" alt="Bruno" loading="lazy"></div>
+                    <div class="card-image"><img src="img/bruno.jpg" alt="Bruno" width="277" height="480" loading="lazy" decoding="async"></div>
                     <div class="card-meta"><span class="card-date">23 Ottobre 2009</span><span class="card-badge badge-update">Update</span></div>
                     <h3 class="card-title">Bruno!!!!</h3>
                     <p class="card-context">In uscita in tutte le sale!</p>

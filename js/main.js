@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('scrolled');
     }
-});
+}, { passive: true });
 
 // ===========================
 // Mobile menu toggle
@@ -26,11 +26,21 @@ function toggleMenu() {
     navToggle.classList.toggle('active');
     navLinks.classList.toggle('open');
     overlay.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    const isOpen = navLinks.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
 navToggle.addEventListener('click', toggleMenu);
 overlay.addEventListener('click', toggleMenu);
+
+// Close menu with Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        toggleMenu();
+        navToggle.focus();
+    }
+});
 
 // Close menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
@@ -62,7 +72,7 @@ window.addEventListener('scroll', () => {
             item.classList.add('active');
         }
     });
-});
+}, { passive: true });
 
 // ===========================
 // Scroll reveal animations
@@ -82,25 +92,36 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe timeline items
-document.querySelectorAll('.timeline-item').forEach((item, index) => {
-    item.style.transitionDelay = `${index * 0.1}s`;
-    observer.observe(item);
-});
+// Observe timeline items and update cards.
+// The stagger is capped and reset once the reveal is over: otherwise later
+// cards would appear seconds after entering the viewport and every hover
+// effect would inherit the same delay.
+function observeReveal(selector, step, maxSteps) {
+    document.querySelectorAll(selector).forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index, maxSteps) * step}s`;
+        el.addEventListener('transitionend', () => {
+            el.style.transitionDelay = '0s';
+        }, { once: true });
+        observer.observe(el);
+    });
+}
 
-// Observe update cards
-document.querySelectorAll('.card-update').forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.08}s`;
-    observer.observe(card);
-});
+observeReveal('.timeline-item', 0.1, 6);
+observeReveal('.card-update', 0.08, 6);
 
 // ===========================
 // Smooth scroll for anchor links
 // ===========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // "#" alone is not a valid selector and would throw
+        if (href.length < 2) {
+            e.preventDefault();
+            return;
+        }
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             const offset = 80;
             const top = target.getBoundingClientRect().top + window.scrollY - offset;
